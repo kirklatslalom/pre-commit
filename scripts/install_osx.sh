@@ -26,6 +26,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     brew tap liamg/tfsec
     brew install tfsec
   fi
+  if [ ! -f /usr/local/bin/hadolint ]; then
+    brew install hadolint
+  fi
 fi
 
 python3 -m pip install -r requirements.txt
