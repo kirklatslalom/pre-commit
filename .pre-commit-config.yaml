@@ -5,7 +5,7 @@ repos:
     hooks:
       - id: dockerlint
   - repo: https://github.com/ambv/black
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -45,13 +45,14 @@ repos:
       - id: infracost_breakdown
         args:
           - --args=--path=aws
+          - --args=--minimum-failure-severity=[error]
         verbose: true
   - repo: https://github.com/jazzband/pip-tools
     rev: 6.12.3
     hooks:
       - id: pip-compile
   - repo: https://github.com/aws-cloudformation/cfn-python-lint
-    rev: v0.75.1
+    rev: v0.76.1
     hooks:
       - id: cfn-python-lint
         files: path/to/cfn/dir/.*\.(json|yml|yaml)$
@@ -64,7 +65,7 @@ repos:
         types: [python]
         stages: [push]
   - repo: https://github.com/ansible-community/ansible-lint.git
-    rev: v6.14.2
+    rev: v6.14.3
     hooks:
       - id: ansible-lint
         name: Ansible-lint
