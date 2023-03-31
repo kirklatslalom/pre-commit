@@ -29,12 +29,18 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   if [ ! -f /usr/local/bin/hadolint ]; then
     brew install hadolint
   fi
+  if [ ! -f /usr/local/bin/jq ]; then
+    brew install jq
+  fi
   if [ ! -f /usr/local/bin/terraform ]; then
     brew install tfenv
     tfenv init
     LATEST=`tfenv list-remote | head -1`
     tfenv install $LATEST
     tfenv use $LATEST
+  fi
+  if [ ! -f /usr/local/bin/infracost ]; then
+    brew install infracost
   fi
 fi
 

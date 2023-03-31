@@ -39,13 +39,15 @@ repos:
       - id: terraform_docs
       - id: terraform_validate
       - id: terraform_tflint
+        args:
+          - --args=--minimum-failure-severity=error
+        verbose: true
       - id: terraform_tfsec
       - id: terraform_checkov
       # - id: terrascan
       - id: infracost_breakdown
         args:
           - --args=--path=aws
-          - --args=--minimum-failure-severity=[error]
         verbose: true
   - repo: https://github.com/jazzband/pip-tools
     rev: 6.12.3
