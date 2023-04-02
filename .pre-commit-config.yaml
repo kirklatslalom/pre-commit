@@ -44,7 +44,7 @@ repos:
         verbose: true
       - id: terraform_tfsec
       - id: terraform_checkov
-      # - id: terrascan
+      - id: terrascan
       - id: infracost_breakdown
         args:
           - --args=--path=aws
