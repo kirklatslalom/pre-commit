@@ -50,11 +50,11 @@ repos:
           - --args=--path=aws
         verbose: true
   - repo: https://github.com/jazzband/pip-tools
-    rev: 6.12.3
+    rev: 6.13.0
     hooks:
       - id: pip-compile
   - repo: https://github.com/aws-cloudformation/cfn-python-lint
-    rev: v0.76.1
+    rev: v0.76.2
     hooks:
       - id: cfn-python-lint
         files: path/to/cfn/dir/.*\.(json|yml|yaml)$
@@ -67,7 +67,7 @@ repos:
         types: [python]
         stages: [push]
   - repo: https://github.com/ansible-community/ansible-lint.git
-    rev: v6.14.3
+    rev: v6.14.4
     hooks:
       - id: ansible-lint
         name: Ansible-lint
