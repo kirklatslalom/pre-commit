@@ -33,7 +33,7 @@ repos:
       - id: flake8
         args: [--max-line-length=120]
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.77.1
+    rev: v1.78.0
     hooks:
       - id: terraform_fmt
       - id: terraform_docs
@@ -54,7 +54,7 @@ repos:
     hooks:
       - id: pip-compile
   - repo: https://github.com/aws-cloudformation/cfn-python-lint
-    rev: v0.76.2
+    rev: v0.77.4
     hooks:
       - id: cfn-python-lint
         files: path/to/cfn/dir/.*\.(json|yml|yaml)$
@@ -67,7 +67,7 @@ repos:
         types: [python]
         stages: [push]
   - repo: https://github.com/ansible-community/ansible-lint.git
-    rev: v6.14.4
+    rev: v6.15.0
     hooks:
       - id: ansible-lint
         name: Ansible-lint
