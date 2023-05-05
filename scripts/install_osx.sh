@@ -1,45 +1,54 @@
 #!/bin/bash
+
+DIR=/opt/homebrew/bin/
+
 # Install prerequisites
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [ ! -f /usr/local/bin/pylint ]; then
+  if [ ! -f $DIR/pylint ]; then
     brew install pylint
   fi
-  if [ ! -f /usr/local/bin/pre-commit ]; then
+  if [ ! -f $DIR/ansible-lint ]; then
+    brew install ansible-lint
+  fi
+  if [ ! -f $DIR/ansible ]; then
+    brew install ansible
+  fi
+  if [ ! -f $DIR/pre-commit ]; then
     brew install pre-commit
   fi
-  if [ ! -f /usr/local/bin/black ]; then
+  if [ ! -f $DIR/black ]; then
     brew install black
   fi
-  if [ ! -f /usr/local/bin/terraform-docs ]; then
+  if [ ! -f $DIR/terraform-docs ]; then
     brew install terraform-docs
   fi
-  if [ ! -f /usr/local/bin/tflint ]; then
+  if [ ! -f $DIR/tflint ]; then
     brew install tflint
   fi
-  if [ ! -f /usr/local/bin/gbase64 ]; then
+  if [ ! -f $DIR/gbase64 ]; then
     brew install coreutils
   fi
-  if [ ! -f /usr/local/bin/gawk ]; then
+  if [ ! -f $DIR/gawk ]; then
     brew install gawk
   fi
-  if [ ! -f /usr/local/bin/tfsec ]; then
+  if [ ! -f $DIR/tfsec ]; then
     brew tap liamg/tfsec
     brew install tfsec
   fi
-  if [ ! -f /usr/local/bin/hadolint ]; then
+  if [ ! -f $DIR/hadolint ]; then
     brew install hadolint
   fi
-  if [ ! -f /usr/local/bin/jq ]; then
+  if [ ! -f $DIR/jq ]; then
     brew install jq
   fi
-  if [ ! -f /usr/local/bin/terraform ]; then
+  if [ ! -f $DIR/terraform ]; then
     brew install tfenv
     tfenv init
     LATEST=`tfenv list-remote | head -1`
     tfenv install $LATEST
     tfenv use $LATEST
   fi
-  if [ ! -f /usr/local/bin/infracost ]; then
+  if [ ! -f $DIR/infracost ]; then
     brew install infracost
   fi
 fi

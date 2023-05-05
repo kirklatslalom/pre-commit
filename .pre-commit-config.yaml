@@ -52,7 +52,7 @@ repos:
       - id: terrascan
       - id: infracost_breakdown
         args:
-          - --args=--path=aws
+          - --args=--path=.
         verbose: true
   - repo: https://github.com/jazzband/pip-tools
     rev: 6.13.0
@@ -80,116 +80,9 @@ repos:
       - id: ansible-lint
         name: Ansible-lint
         description: This hook runs ansible-lint.
-        entry: ansible-lint --force-color
+        entry: ansible-lint --force-color .
         language: python
         # do not pass files to ansible-lint, see:
         # https://github.com/ansible-community/ansible-lint/issues/611
         pass_filenames: false
         always_run: true
-
-  - repo: https://github.com/radix-ai/auto-smart-commit
-    rev: v0.1.0
-    hooks:
-    - id: auto-smart-commit
-      args:
-      - --jira-smart-commit
-
-  # Add a hook for SAST using the `safety` tool
-  - repo: https://github.com/pyupio/safety
-    rev: 1.10.3
-    hooks:
-      - id: safety
-        args: ['check', '--full-report']
-        description: "Scan dependencies for known security vulnerabilities using safety"
-        language: python
-        types: [dependency]
-
-  # Add a hook for code formatting using `isort`
-  - repo: https://github.com/pycqa/isort
-    rev: 5.9.3
-    hooks:
-      - id: isort
-        args: ['-rc']
-        description: "Sort python imports with isort"
-        language: python
-        types: [python]
-
-  # Add a hook for checking code complexity using `radon`
-  - repo: https://github.com/wemake-services/wemake-python-styleguide
-    rev: v0.15.4
-    hooks:
-      - id: radon
-        args: ["mi", "--show-complexity", "--min", "10", "."]
-        description: "Check code complexity with radon"
-        language: python
-        types: [python]
-
-  # Add a hook for checking type hints using `mypy`
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.910
-    hooks:
-      - id: mypy
-        args: ['--config-file', 'mypy.ini', '.']
-        language: python
-        types: [python]
-
-  # Add a hook for checking for sensitive data using `truffleHog`
-  - repo: https://github.com/pre-commit/mirrors-trufflehog
-    rev: v0.5.7
-    hooks:
-      - id: trufflehog
-        args: ['--regex', '--entropy=False']
-        description: "Scan for secrets using trufflehog"
-        language: python
-        types: [file]
-
-  # Add a hook for checking for hard-coded AWS secrets
-  - repo: https://github.com/nccgroup/ScoutSuite
-    rev: v5.9.0
-    hooks:
-      - id: scout-aws-secrets
-        name: Scout Suite - AWS Secrets
-        entry: scout aws secrets
-        description: Check for hard-coded AWS secrets using Scout Suite
-        language: python
-        types: [file]
-
-  # Add a hook for checking for hard-coded Azure secrets
-  - repo: https://github.com/nccgroup/ScoutSuite
-    rev: v5.9.0
-    hooks:
-      - id: scout-azure-secrets
-        name: Scout Suite - Azure Secrets
-        entry: scout azure secrets
-        description: Check for hard-coded Azure secrets using Scout Suite
-        language: python
-        types: [file]
-
-  # Add a hook for checking for hard-coded GCP secrets
-  - repo: https://github.com/nccgroup/ScoutSuite
-    rev: v5.9.0
-    hooks:
-      - id: scout-gcp-secrets
-        name: Scout Suite - GCP Secrets
-        entry: scout gcp secrets
-        description: Check for hard-coded GCP secrets using Scout Suite
-        language: python
-        types: [file]
-
-  - repo: https://github.com/simonkowallik/sls-cognito-cleanup-plugin
-    rev: v1.1.2
-    hooks:
-      - id: sls-cognito-cleanup-plugin
-        name: SLS Cognito Cleanup Plugin
-        entry: sls_cognito_cleanup_plugin.cleanup
-        language: python
-        types: [python]
-        always_run: true
-        verbose: true
-      - id: sls-cognito-cleanup-plugin-iam
-        name: SLS Cognito Cleanup Plugin IAM
-        entry: sls_cognito_cleanup_plugin.iam_cleanup
-        language: python
-        types: [python]
-        always_run: true
-        verbose: true
