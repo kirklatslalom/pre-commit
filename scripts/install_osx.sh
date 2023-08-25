@@ -14,6 +14,7 @@ PACKAGES=(
     "tfsec"
     "hadolint"
     "jq"
+    "terrascan"
 )
 
 # Install prerequisites
