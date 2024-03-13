@@ -15,6 +15,7 @@ PACKAGES=(
     "hadolint"
     "jq"
     "terrascan"
+    "trivy"
 )
 
 # Install prerequisites
