@@ -11,7 +11,7 @@ repos:
   # Automatically formats Python code to conform to the PEP 8 style guide.
   # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 24.2.0
+    rev: 24.3.0
     hooks:
       - id: black
         # It is recommended to specify the latest version of Python
@@ -78,7 +78,7 @@ repos:
   # Terraform Linting and Validation
   # Provides various hooks to ensure Terraform files are correctly formatted, documented, and free from common errors.
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.88.1
+    rev: v1.88.4
     hooks:
       - id: terraform_fmt
       - id: terraform_docs
@@ -105,7 +105,7 @@ repos:
   # AWS CloudFormation Linting
   # Checks AWS CloudFormation templates against AWS best practices.
   - repo: https://github.com/aws-cloudformation/cfn-python-lint
-    rev: v0.86.0
+    rev: v0.86.1
     hooks:
       - id: cfn-python-lint
         files: path/to/cfn/dir/.*\.(json|yml|yaml)$
@@ -144,7 +144,7 @@ repos:
 
   # Check JAVA
   - repo: https://github.com/gherynos/pre-commit-java.git
-    rev: v0.3.0
+    rev: v0.4.0
     hooks:
       - id: pmd
       - id: cpd
