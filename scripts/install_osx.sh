@@ -2,6 +2,7 @@
 
 DIR=/opt/homebrew/bin/
 PACKAGES=(
+    "checkmake"
     "pylint"
     "ansible-lint"
     "ansible"
@@ -26,7 +27,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         fi
     done
 
-    if [ ! -f "${DIR}/terraform" ]; then
+    if [ ! -f "${DIR}/tfenv" ]; then
         brew install tfenv
         tfenv init
         LATEST=`tfenv list-remote | head -1`
