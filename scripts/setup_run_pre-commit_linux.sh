@@ -45,7 +45,6 @@ if [ -x "$(command -v apt)" ]; then
 
   # infracost
   curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
-  export INFRACOST_API_KEY=ico-7kQ9JvULBsKOVa2l1ondnR2ozE99yZeR
 
 elif [ -x "$(command -v yum)" ]; then
   echo "RPM-based system detected."
